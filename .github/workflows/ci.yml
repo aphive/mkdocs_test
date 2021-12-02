@@ -1,17 +1,25 @@
 name: ci
 on:
   push:
-    branches:
-      - main
-      - master
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ 3.8 ]
+
     steps:
-      - checkout
-      - run:
-        name: Install Dependencies
-        command: pip3 install -r requirements.txt --progress-bar off
-      - run:
-        name: Deploy Pages
-        command: mkdocs gh-deploy
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+          
+      - name: Install Requirements
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Deploy Pages
+        run: python3 -m mkdocs gh-deploy --force
