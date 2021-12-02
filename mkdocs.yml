@@ -1,0 +1,77 @@
+site_name: Foo Project
+
+# Navigation
+nav:
+  - Home: index.md
+
+# <!-- START CUSTOMIZATION SECTION -->
+# Documentation and theme
+theme:
+  name: 'material'
+
+# Plugins and Extensions
+plugins:
+  - search
+  - autolinks
+  # DO NOT Enable Tags, this is an upcoming feature that I am prepping for. It will break things if you do.
+  #- tags:
+  #    tags_file: tags.md
+  - git-revision-date-localized:
+      type: timeago
+      locale: en
+      fallback_to_build_date: true
+      exclude:
+        - index.md
+markdown_extensions:
+  - codehilite:
+      guess_lang: true
+      use_pygments: true
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - toc:
+      permalink: false
+      toc_depth: 4
+  - fontawesome_markdown
+  - markdown_include.include:
+      base_path: .
+  - meta
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.pathconverter
+  - pymdownx.saneheaders
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      base_path: .
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+          format: !!python/name:pymdownx.superfences.fence_div_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true
+  - pymdownx.tilde
+# <!-- END CUSTOMIZATION SECTION -->

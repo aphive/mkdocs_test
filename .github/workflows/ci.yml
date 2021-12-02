@@ -1,0 +1,17 @@
+name: ci
+on:
+  push:
+    branches:
+      - main
+      - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - checkout
+      - run:
+        name: Install Dependencies
+        command: pip3 install -r requirements.txt --progress-bar off
+      - run:
+        name: Deploy Pages
+        command: mkdocs gh-deploy
